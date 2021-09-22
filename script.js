@@ -24,6 +24,20 @@ input.addEventListener('input', function () {
 
 
 
+input.addEventListener('keydown', function (e) {
+	if(e.key === 'Backspace') {
+		if(this.value === "") {
+			const li = tagWrapper.querySelectorAll('li');
+			li[li.length - 1].remove()
+			this.value = listTag[listTag.length - 1] + " "
+			listTag.pop()
+			totalTag.textContent = listTag.length;
+		}
+	}
+})
+
+
+
 function addTag() {
 	tagWrapper.querySelectorAll('li').forEach(li=> li.remove())
 	listTag.forEach(item=> {
